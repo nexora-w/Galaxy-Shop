@@ -69,6 +69,11 @@ export function Footer() {
                   +1 316 240 3351
                 </a>
               </li>
+              <li>
+                <a href="mailto:Nowapsi@gmail.com" className="hover:text-primary transition-colors">
+                  Nowapsi@gmail.com
+                </a>
+              </li>
             </ul>
           </div>
         </div>
