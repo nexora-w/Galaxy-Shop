@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import { useState } from "react"
+import { useToast } from "@/hooks/use-toast"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -20,9 +21,26 @@ export default function ContactPage() {
     subject: "",
     message: "",
   })
+  const { toast } = useToast()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const requiredFields = ["firstName", "lastName", "email", "subject", "message"] as const
+    const hasEmptyRequired = requiredFields.some((field) => !formData[field].trim())
+
+    if (hasEmptyRequired) {
+      toast({
+        variant: "destructive",
+        title: "Missing information",
+        description: "Please complete all required fields before sending.",
+      })
+      return
+    }
+
+    toast({
+      title: "Message sent",
+      description: "Thanks for reaching out! We'll respond within 24 hours.",
+    })
     console.log("Form submitted:", formData)
     // Handle form submission
   }
