@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Phone } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -21,11 +22,9 @@ export function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-2xl font-bold text-primary-foreground">G</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">Galaxy Shop</span>
+          <Link href="/" className="flex items-center justify-center gap-2">
+            <Image src="/favicon.png" alt="Galaxy Shop" width={50} height={50} />
+            <span className="text-xl font-bold text-foreground pt-2">Galaxy Shop</span>
           </Link>
 
           {/* Desktop Navigation */}

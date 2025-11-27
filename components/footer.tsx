@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Github, Linkedin, Twitter, Mail } from "lucide-react"
-
+import Image from "next/image"
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -11,10 +11,8 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-2xl font-bold text-primary-foreground">G</span>
-              </div>
-              <span className="text-xl font-bold text-foreground">Galaxy Shop</span>
+              <Image src="/favicon.png" alt="Galaxy Shop" width={50} height={50} />
+              <span className="text-xl font-bold text-foreground pt-2">Galaxy Shop</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Pioneering digital innovation through cutting-edge software solutions and technology expertise.
